@@ -30,7 +30,7 @@ const tweets = [
         author: 'EXO Official',
         username: 'exo_official',
         content: '🌟 EXO-Ls! Vocês viram a nova performance do Kai no Music Bank? Incrível! #EXO #Kai #MusicBank #EXOL',
-        time: 'há 2 horas',
+        time: 'há 2h',
         likes: 142,
         retweets: 23,
         comments: 45,
@@ -43,7 +43,7 @@ const tweets = [
         author: 'Baekhyun Stan',
         username: 'baekhyun_stan',
         content: '🎵 O álbum "Bambi" do Baekhyun é uma obra de arte! Cada música é perfeita! Qual é a favorita de vocês? #Baekhyun #Bambi #EXO',
-        time: 'há 4 horas',
+        time: 'há 4h',
         likes: 89,
         retweets: 15,
         comments: 67,
@@ -56,7 +56,7 @@ const tweets = [
         author: 'Kai Lover',
         username: 'kai_lover',
         content: '💫 Sehun ficou lindo no novo MV! O visual dele está perfeito! Vocês concordam? #Sehun #EXO #Visual',
-        time: 'há 6 horas',
+        time: 'há 6h',
         likes: 156,
         retweets: 34,
         comments: 89,
@@ -69,7 +69,7 @@ const tweets = [
         author: 'EXO Official',
         username: 'exo_official',
         content: '🎤 Suho cantando "Grey Suit" é pura emoção! Que voz linda! #Suho #GreySuit #EXO #Vocals',
-        time: 'há 8 horas',
+        time: 'há 8h',
         likes: 203,
         retweets: 45,
         comments: 78,
@@ -82,7 +82,7 @@ const tweets = [
         author: 'Chen Fan',
         username: 'chen_fan',
         content: '🔥 Chen é simplesmente o melhor vocalista do K-pop! Sua voz é celestial! #Chen #Vocals #EXO #Best',
-        time: 'há 10 horas',
+        time: 'há 10h',
         likes: 178,
         retweets: 29,
         comments: 56,
@@ -95,7 +95,7 @@ const tweets = [
         author: 'Chanyeol Stan',
         username: 'chanyeol_stan',
         content: '🎸 Chanyeol tocando guitarra é a coisa mais linda do mundo! Que talento incrível! #Chanyeol #Guitar #EXO #Talent',
-        time: 'há 12 horas',
+        time: 'há 12h',
         likes: 234,
         retweets: 67,
         comments: 123,
@@ -108,7 +108,7 @@ const tweets = [
         author: 'D.O. Lover',
         username: 'd.o._lover',
         content: '🎭 D.O. atuando é pura arte! Ele é um ator nato! Vocês viram seus dramas? #D.O. #Actor #EXO #Drama',
-        time: 'há 14 horas',
+        time: 'há 14h',
         likes: 198,
         retweets: 43,
         comments: 87,
@@ -121,7 +121,7 @@ const tweets = [
         author: 'Xiumin Fan',
         username: 'xiumin_fan',
         content: '💎 Xiumin é o membro mais fofo do EXO! Seu sorriso ilumina tudo! #Xiumin #Cute #EXO #Smile',
-        time: 'há 16 horas',
+        time: 'há 16h',
         likes: 167,
         retweets: 38,
         comments: 94,
@@ -134,7 +134,7 @@ const tweets = [
         author: 'Lay Supporter',
         username: 'lay_supporter',
         content: '🇨🇳 Lay representando a China com muito orgulho! Ele é um ícone! #Lay #China #EXO #Icon',
-        time: 'há 18 horas',
+        time: 'há 18h',
         likes: 145,
         retweets: 52,
         comments: 76,
@@ -163,7 +163,7 @@ function createTweet() {
         author: defaultUser.displayName,
         username: defaultUser.username,
         content: content,
-        time: 'agora mesmo',
+        time: 'agora',
         likes: 0,
         retweets: 0,
         comments: 0,
@@ -175,6 +175,7 @@ function createTweet() {
     tweets.unshift(newTweet);
     displayTweets();
     document.getElementById('tweet-content').value = '';
+    updateCharCounter();
 }
 
 // Função para exibir tweets
@@ -214,26 +215,33 @@ function createTweetElement(tweet) {
     }
     
     tweetDiv.innerHTML = `
-        <div class="tweet-header">
-            <img src="${avatar}" alt="Perfil" class="profile-pic">
-            <div class="tweet-author">
-                <div class="tweet-author-name">${tweet.author}</div>
-                <div class="tweet-author-username">@${tweet.username}</div>
-            </div>
-            <div class="tweet-time">${tweet.time}</div>
+        <div class="tweet-avatar">
+            <img src="${avatar}" alt="Perfil">
         </div>
-        <div class="tweet-content">${tweet.content}</div>
-        ${tweet.image ? `<img src="${tweet.image}" alt="Tweet image" class="tweet-image">` : ''}
-        <div class="tweet-actions">
-            <button class="tweet-action-btn" onclick="addComment(${tweet.id})">
-                💬 ${tweet.comments}
-            </button>
-            <button class="tweet-action-btn ${tweet.retweeted ? 'retweeted' : ''}" onclick="toggleRetweet(${tweet.id})">
-                🔄 ${tweet.retweets}
-            </button>
-            <button class="tweet-action-btn ${tweet.liked ? 'liked' : ''}" onclick="toggleLike(${tweet.id})">
-                ${tweet.liked ? '❤️' : '🤍'} ${tweet.likes}
-            </button>
+        <div class="tweet-content-area">
+            <div class="tweet-header">
+                <div class="tweet-author">
+                    <span class="tweet-author-name">${tweet.author}</span>
+                    <span class="tweet-author-username">@${tweet.username}</span>
+                </div>
+                <span class="tweet-time">${tweet.time}</span>
+            </div>
+            <div class="tweet-content">${tweet.content}</div>
+            ${tweet.image ? `<img src="${tweet.image}" alt="Tweet image" class="tweet-image">` : ''}
+            <div class="tweet-actions">
+                <button class="tweet-action-btn" onclick="addComment(${tweet.id})">
+                    <span>💬</span>
+                    <span>${tweet.comments}</span>
+                </button>
+                <button class="tweet-action-btn ${tweet.retweeted ? 'retweeted' : ''}" onclick="toggleRetweet(${tweet.id})">
+                    <span>🔄</span>
+                    <span>${tweet.retweets}</span>
+                </button>
+                <button class="tweet-action-btn ${tweet.liked ? 'liked' : ''}" onclick="toggleLike(${tweet.id})">
+                    <span>${tweet.liked ? '❤️' : '🤍'}</span>
+                    <span>${tweet.likes}</span>
+                </button>
+            </div>
         </div>
     `;
     
@@ -272,6 +280,33 @@ function addComment(tweetId) {
     }
 }
 
+// Função para atualizar contador de caracteres
+function updateCharCounter() {
+    const content = document.getElementById('tweet-content').value;
+    const counter = document.getElementById('char-counter');
+    const remaining = 280 - content.length;
+    
+    counter.textContent = `${content.length}/280`;
+    
+    if (remaining < 20) {
+        counter.style.color = '#f4212e';
+    } else if (remaining < 50) {
+        counter.style.color = '#ff7a00';
+    } else {
+        counter.style.color = '#536471';
+    }
+    
+    // Desabilita botão se muito longo
+    const tweetBtn = document.querySelector('.tweet-btn');
+    if (content.length > 280 || content.length === 0) {
+        tweetBtn.disabled = true;
+        tweetBtn.style.opacity = '0.5';
+    } else {
+        tweetBtn.disabled = false;
+        tweetBtn.style.opacity = '1';
+    }
+}
+
 // Event listener para quando a página carrega
 document.addEventListener('DOMContentLoaded', function() {
     // Exibe os tweets quando a página carrega
@@ -285,21 +320,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Contador de caracteres para tweet
-    document.getElementById('tweet-content').addEventListener('input', function(e) {
-        const content = e.target.value;
-        const maxLength = 280;
-        const remaining = maxLength - content.length;
-        
-        // Adiciona contador visual se não existir
-        let counter = document.querySelector('.char-counter');
-        if (!counter) {
-            counter = document.createElement('div');
-            counter.className = 'char-counter';
-            counter.style.cssText = 'text-align: right; font-size: 0.8rem; color: #6c757d; margin-top: 0.5rem;';
-            e.target.parentNode.appendChild(counter);
-        }
-        
-        counter.textContent = `${content.length}/${maxLength}`;
-        counter.style.color = remaining < 20 ? '#e74c3c' : '#6c757d';
-    });
+    document.getElementById('tweet-content').addEventListener('input', updateCharCounter);
+    
+    // Inicializa contador
+    updateCharCounter();
 });
