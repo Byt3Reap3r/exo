@@ -1,16 +1,21 @@
-# 🐦 EXO Twitter - Feed Social da Comunidade EXO
+# 🐦 EXO Twitter - Réplica Perfeita do Twitter
 
-Um feed social estilo Twitter dedicado à comunidade EXO-L, onde os fãs podem interagir e compartilhar sobre seus membros favoritos do grupo EXO.
+Uma réplica pixel-perfect do Twitter oficial dedicada à comunidade EXO-L, onde os fãs podem interagir e compartilhar sobre seus membros favoritos do grupo EXO.
 
 ## ✨ Funcionalidades
 
-- **Feed Twitter Completo**: Interface limpa e moderna estilo Twitter
-- **Tweets Interativos**: Sistema de curtidas, retweets e comentários
+- **Layout Idêntico ao Twitter**: Interface exata do Twitter oficial
+- **Sidebar Esquerda**: Navegação completa com Home, Comunidades, Tópicos, etc.
+- **Feed Central**: Header com abas, criar tweet e timeline de posts
+- **Sidebar Direita**: Busca, trending topics do EXO e sugestões de seguir
+- **Tweets Interativos**: Sistema completo de curtidas, retweets e comentários
 - **Todos os Membros EXO**: Posts sobre Kai, Baekhyun, Sehun, Suho, Chen, Chanyeol, D.O., Xiumin e Lay
 - **Criar Tweets**: Campo para escrever tweets sobre EXO (máximo 280 caracteres)
-- **Contador de Caracteres**: Mostra quantos caracteres restam
+- **Contador de Caracteres**: Mostra quantos caracteres restam em tempo real
+- **Trending Topics**: #EXO, #Kai, #Baekhyun, #Sehun e mais
+- **Quem Seguir**: Sugestões de membros do EXO para seguir
 - **Imagens Reais**: Fotos dos membros carregadas da Wikipedia
-- **Design Responsivo**: Funciona perfeitamente em desktop e mobile
+- **Design Responsivo**: Layout adaptativo para desktop, tablet e mobile
 
 ## 🎯 Membros Incluídos
 
@@ -43,25 +48,31 @@ Um feed social estilo Twitter dedicado à comunidade EXO-L, onde os fãs podem i
 
 ## 🎨 Tecnologias Utilizadas
 
-- **HTML5**: Estrutura semântica
-- **CSS3**: Estilos modernos com Flexbox e Grid
-- **JavaScript ES6+**: Funcionalidades interativas
-- **Google Fonts**: Fonte Poppins
+- **HTML5**: Estrutura semântica e acessível
+- **CSS3**: Estilos pixel-perfect com Flexbox e Grid
+- **JavaScript ES6+**: Funcionalidades interativas completas
+- **Fontes do Sistema**: San Francisco, Segoe UI, Roboto
 - **Wikipedia API**: Imagens reais dos membros
+- **Design System**: Cores e espaçamentos exatos do Twitter
 
 ## 📱 Responsividade
 
-O projeto é totalmente responsivo e funciona perfeitamente em:
-- 💻 Desktop
-- 📱 Tablet
-- 📱 Mobile
+O projeto replica perfeitamente o comportamento responsivo do Twitter:
+- 💻 **Desktop**: Layout completo com 3 colunas (275px + flex + 350px)
+- 📱 **Tablet**: Remove sidebar direita, mantém navegação lateral
+- 📱 **Mobile**: Sidebar vira menu inferior, layout adaptado
+- 🎯 **Breakpoints**: 1024px, 768px, 480px (iguais ao Twitter)
 
 ## 🌟 Recursos Especiais
 
+- **Réplica Pixel-Perfect**: Layout 100% idêntico ao Twitter oficial
 - **Tweets Pré-carregados**: 9 tweets iniciais sobre cada membro
-- **Interações Reais**: Sistema funcional de curtidas e retweets
-- **Design Limpo**: Interface minimalista e moderna
-- **Cores do Twitter**: Paleta de cores inspirada no Twitter oficial
+- **Interações Reais**: Sistema funcional de curtidas, retweets e comentários
+- **Trending Topics**: Hashtags do EXO em tempo real
+- **Sugestões Inteligentes**: Recomendações de membros para seguir
+- **Cores Exatas**: Paleta de cores idêntica ao Twitter (#1d9bf0, #536471, etc.)
+- **Hover Effects**: Animações e transições iguais ao Twitter
+- **Contador Dinâmico**: Atualização em tempo real dos caracteres
 
 ## 📂 Estrutura do Projeto
 
