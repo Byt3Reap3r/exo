@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXO Twitter - Comunidade</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>🐦 EXO Twitter</h1>
+    
+    <!-- Feed Twitter -->
+    <section class="twitter-feed" id="twitter-feed">
+        <div class="feed-header">
+            <h2>🐦 EXO Twitter - Comunidade</h2>
+        </div>
+        
+        <!-- Criar Tweet -->
+        <div class="create-tweet">
+            <img src="https://via.placeholder.com/40x40/3498db/ffffff?text=EXO" alt="Perfil" class="profile-pic">
+            <div class="tweet-input-area">
+                <textarea id="tweet-content" placeholder="O que está acontecendo no mundo EXO?"></textarea>
+                <div class="tweet-actions">
+                    <button class="action-btn emoji-btn">😊</button>
+                    <button class="action-btn image-btn">📷</button>
+                    <button class="action-btn gif-btn">🎬</button>
+                    <button class="tweet-btn" onclick="createTweet()">Tweetar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feed de Tweets -->
+        <div id="tweets-feed" class="tweets-feed">
+            <!-- Tweets serão inseridos aqui dinamicamente -->
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
